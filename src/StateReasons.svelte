@@ -7,12 +7,9 @@ Chart.Inject(ColumnSeries, LineSeries, Category, Legend, Tooltip, SplineSeries,B
 import Card from './MetricsCard.svelte';
 import { format, parse, compareAsc } from 'date-fns';
 
+export let appData;
 const API_BASE_URL = 'https://api.recruitly.io/api/dashboard/sales';
   const API_KEY = 'TEST45684CB2A93F41FC40869DC739BD4D126D77';
-
-  let chartData = [];
-  let chart = null; // Initialize chart with null
-  
 
   let startDate = '';
   let endDate = '';
@@ -48,7 +45,7 @@ const API_BASE_URL = 'https://api.recruitly.io/api/dashboard/sales';
   });
 async function fetchOpportunityStateReasonsChartData(startDate, endDate) {
   // Use selectedStartDate and selectedEndDate in the API call
-  const apiUrlStateReasons = `${API_BASE_URL}/data/opportunity/statereasons?start=${startDate}&end=${endDate}&apiKey=${API_KEY}`;
+  const apiUrlStateReasons = `${appData.service.endpoint}/dashboard/sales/data/opportunity/statereasons?start=${startDate}&end=${endDate}&apiKey=${appData.service.apiKey}`;
   const responseStateReasons = await fetch(apiUrlStateReasons);
   const dataStateReasons = await responseStateReasons.json();
   // Process the API response data for the Opportunity State Reasons chart

@@ -67,7 +67,7 @@ import { format, parse, compareAsc } from 'date-fns';
    });
 async function fetchOpportunityChartData(startDate, endDate) {
     // Use selectedStartDate and selectedEndDate in the API call
-    const apiUrlDays = `${appData.service.endpoint}/dashboard/sales/data/oppurtunitymonthlymetrics?start=${startDate}&end=${endDate}&apiKey=${appData.service.apiKey}`;
+    const apiUrlDays = `${appData.service.endpoint}/dashboard/sales/data/opportunitymonthlymetrics?start=${startDate}&end=${endDate}&apiKey=${appData.service.apiKey}`;
     const responseDays = await fetch(apiUrlDays);
     const dataDays = await responseDays.json();
 

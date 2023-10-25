@@ -2,10 +2,9 @@
  import Card from './Card.svelte';
   import { onMount,afterUpdate } from 'svelte';
   import { dateStore } from './DateStore.js'; // Import the store
-  const API_BASE_URL = 'https://api.recruitly.io/api/dashboard/sales';
-    const API_KEY = 'TEST45684CB2A93F41FC40869DC739BD4D126D77';
+  
 
- 
+ export let appData;
    let data = null; 
    let startDate = "";
    let endDate = "";
@@ -33,8 +32,7 @@ async function fetchData(startDate, endDate) {
 
 try {
   // Use startDate and endDate in your API calls
-  const response = await fetch(
-    `${API_BASE_URL}/metrics?start=${startDate}&end=${endDate}&apiKey=${API_KEY}`,
+  const response = await fetch(`${appData.service.endpoint}/dashboard/sales/metrics?start=${startDate}&end=${endDate}&apiKey=${appData.service.apiKey}`,
     {
       headers: {
         'Cookie': 'SESSION=NTkwN2VlOWQtZjRlNi00NmQ4LWE4MTUtOTJhNT71YjA0ZWMx',
