@@ -8,9 +8,6 @@ import Card from './MetricsCard.svelte';
 import { format, parse, compareAsc } from 'date-fns';
 
 export let appData;
-const API_BASE_URL = 'https://api.recruitly.io/api/dashboard/sales';
-  const API_KEY = 'TEST45684CB2A93F41FC40869DC739BD4D126D77';
-
   let startDate = '';
   let endDate = '';
 
